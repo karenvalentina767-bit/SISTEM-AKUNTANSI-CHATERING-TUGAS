@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Karsa Catering — Catering Pernikahan, Kantor &amp; Syukuran</title>
+    <meta name="description" content="Pesan catering prasmanan, nasi box, gubukan, dan snack untuk pernikahan, kantor, dan syukuran. Pesan online tanpa daftar akun." />
+    <meta name="theme-color" content="#123f33" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/beranda.css" />
+    <link rel="icon" type="image/svg+xml" href="./img/logo.svg" />
+  </head>
+  <body class="site">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+        <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h3"/></symbol>
+        <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 20a2 2 0 0 0 4 0"/></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      </defs>
+    </svg>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-head">
+      <div class="wrap site-head-in">
+        <a class="brand" href="#top"><img src="./img/logo.svg" alt="" /><span id="brandName">Karsa Catering</span></a>
+        <nav class="site-nav" aria-label="Navigasi">
+          <a href="#paket">Paket</a>
+          <a href="#cara">Cara pesan</a>
+          <a href="#tagihan">Cek tagihan</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+        <div class="head-actions-site">
+          <a class="btn btn-quiet owner-btn" href="./admin.html"><svg><use href="#i-lock" /></svg><span>Masuk pemilik</span></a>
+          <a class="btn btn-primary" href="#pesan"><span class="hide-sm">Pesan sekarang</span><span class="only-sm">Pesan</span></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Pengingat otomatis: muncul bila tagihan yang pernah dicek sudah dekat / lewat jatuh tempo -->
+    <a class="reminder-bar is-hidden" id="reminderBar" href="#tagihan"><svg><use href="#i-bell" /></svg><span id="reminderText"></span><b>Lihat tagihan</b></a>
+
+    <main id="top">
+      <!-- ===================== HERO ===================== -->
+      <section class="site-hero">
+        <div class="wrap site-hero-in">
+          <div class="site-hero-text">
+            <p class="eyebrow">Catering pernikahan, kantor &amp; syukuran</p>
+            <h1>Hidangan hangat untuk hari yang Anda tunggu.</h1>
+            <p class="lead-lg">Pilih paket, isi tanggal acara dan jumlah tamu, lalu kirim. Tim kami menghubungi Anda untuk konfirmasi menu dan pembayaran.</p>
+            <div class="site-hero-cta">
+              <a class="btn btn-sun btn-lg" href="#pesan">Pesan sekarang<svg><use href="#i-arrow" /></svg></a>
+              <a class="btn btn-ghost-light btn-lg" href="#tagihan">Cek &amp; bayar tagihan</a>
+            </div>
+            <ul class="site-hero-points">
+              <li><svg><use href="#i-check" /></svg>Tanpa daftar akun</li>
+              <li><svg><use href="#i-check" /></svg>DP 50% dulu, lunas H-1 sebelum acara</li>
+              <li><svg><use href="#i-check" /></svg>Invoice resmi + PPN</li>
+            </ul>
+          </div>
+          <div class="site-hero-pics" aria-hidden="true">
+            <img class="pic-a" src="./img/katalog/wedding.jpg" alt="" />
+            <img class="pic-b" src="./img/katalog/gubukan.jpg" alt="" />
+            <img class="pic-c" src="./img/katalog/nasibox.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PAKET ===================== -->
+      <section class="site-section" id="paket">
+        <div class="wrap">
+          <header class="section-head">
+            <div>
+              <p class="eyebrow dark">Paket kami</p>
+              <h2>Pilih paket yang pas untuk acara Anda</h2>
+            </div>
+            <div class="seg site-seg" id="catFilter" role="tablist" aria-label="Filter kategori"></div>
+          </header>
+          <div class="catalog" id="siteCatalog"></div>
+          <p class="note">Harga per porsi (pax), belum termasuk PPN 11%. Butuh menu lain? Pilih <b>Paket custom</b> di form pemesanan.</p>
+        </div>
+      </section>
+
+      <!-- ===================== CARA PESAN ===================== -->
+      <section class="site-section alt" id="cara">
+        <div class="wrap">
+          <header class="section-head"><div><p class="eyebrow dark">Cara pesan</p><h2>Tiga langkah, tanpa ribet</h2></div></header>
+          <ol class="steps">
+            <li><span>1</span><h3>Isi form pesanan</h3><p>Pilih paket, tanggal acara, dan jumlah tamu. Tidak perlu membuat akun.</p></li>
+            <li><span>2</span><h3>Kami hubungi Anda</h3><p>Admin mengonfirmasi ketersediaan tanggal, menu, dan harga final.</p></li>
+            <li><span>3</span><h3>Bayar &amp; lunasi lewat "Cek tagihan"</h3><p>Ketik kode pesanan + nomor HP untuk melihat sisa tagihan dan jatuh tempo, lalu laporkan pembayaran. Admin memverifikasi.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================== FORM PESAN ===================== -->
+      <section class="site-section" id="pesan">
+        <div class="wrap">
+          <header class="section-head"><div><p class="eyebrow dark">Form pemesanan</p><h2>Pesan catering</h2></div></header>
+
+          <div id="configNotice" class="config-banner site-notice is-hidden"></div>
+
+          <div class="order-layout" id="orderLayout">
+            <form id="orderForm" class="form-card order-form" novalidate>
+              <fieldset class="step">
+                <legend><span class="step-no">1</span>Data pemesan</legend>
+                <div class="grid-2">
+                  <label class="field">Nama lengkap <b>*</b><input required name="nama" maxlength="100" autocomplete="name" placeholder="Naya Prameswari" /></label>
+                  <label class="field">Nomor HP <b>*</b><input required name="hp" inputmode="tel" maxlength="25" autocomplete="tel" placeholder="0812 3456 7890" /></label>
+                  <label class="field span-2">Email <small>opsional</small><input type="email" name="email" maxlength="120" autocomplete="email" placeholder="nama@email.com" /></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="step">
+                <legend><span class="step-no">2</span>Acara dan paket</legend>
+                <div class="grid-2">
+                  <label class="field span-2">Nama acara <b>*</b><input required name="acara" maxlength="150" placeholder="Resepsi pernikahan Dinda &amp; Arif" /></label>
+                  <label class="field">Tanggal acara <b>*</b><input required type="date" name="tanggal" /></label>
+                  <label class="field">Paket <b>*</b><select required name="paket" id="paketSelect"></select></label>
+                  <label class="field">Jumlah tamu (pax) <b>*</b><input required type="number" min="1" max="10000" name="pax" placeholder="100" /><small id="paxHint" class="hint"></small></label>
+                  <label class="field span-2 is-hidden" id="customWrap">Paket yang diinginkan <b>*</b><input name="paketCustom" maxlength="90" placeholder="Contoh: tumpeng 3 buah + nasi box 50" /></label>
+                  <label class="field span-2">Catatan <small>opsional</small><textarea name="catatan" rows="3" maxlength="1000" placeholder="Lokasi acara, jam saji, pantangan makanan, dll."></textarea></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="step">
+                <legend><span class="step-no">3</span>Pembayaran</legend>
+                <p class="step-hint">Setelah pesanan terkirim, tagihan langsung muncul dan bisa langsung dibayar. Tidak perlu menunggu konfirmasi admin.</p>
+                <p class="choice-label">Metode pembayaran <b>*</b></p>
+                <div class="choices" id="metodeChoices" role="radiogroup" aria-label="Metode pembayaran"></div>
+
+                <p class="choice-label">Cara bayar <b>*</b></p>
+                <div class="choices choices-2" id="skemaChoices" role="radiogroup" aria-label="Cara bayar">
+                  <label class="choice"><input type="radio" name="skema" value="DP" /><span><strong>Bayar DP dulu</strong><small id="dpHint">Minimal 50% sekarang, sisanya wajib lunas H-1 (sehari sebelum acara)</small></span></label>
+                  <label class="choice"><input type="radio" name="skema" value="Lunas" /><span><strong>Bayar lunas</strong><small>100% sekaligus</small></span></label>
+                </div>
+                <p class="rule-note" id="ruleNote"></p>
+              </fieldset>
+            </form>
+
+            <aside class="summary order-summary">
+              <div class="sum-pack" id="sumPack"></div>
+              <h2>Estimasi biaya</h2>
+              <dl>
+                <div><dt>Harga per pax</dt><dd id="sumPrice">—</dd></div>
+                <div><dt>Jumlah tamu</dt><dd id="sumPax">—</dd></div>
+                <div><dt>Subtotal</dt><dd id="sumSubtotal">Rp 0</dd></div>
+                <div><dt>PPN 11%</dt><dd id="sumTax">Rp 0</dd></div>
+                <div class="total"><dt>Estimasi total</dt><dd id="sumTotal">Rp 0</dd></div>
+              </dl>
+              <div class="pay-plan" id="payPlan"></div>
+              <p class="sum-note">Paket katalog: total di atas adalah harga final. Paket custom: harga dikabari admin.</p>
+              <p id="orderMessage" class="form-message" role="alert"></p>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" form="orderForm" id="orderSubmit">Kirim pesanan</button>
+            </aside>
+          </div>
+
+          <!-- Setelah terkirim -->
+          <div class="order-done is-hidden" id="orderDone" tabindex="-1">
+            <div class="done-icon"><svg><use href="#i-check" /></svg></div>
+            <h2 id="doneTitle">Pesanan terkirim!</h2>
+            <p>Kode pesanan Anda <strong id="doneCode">WEB-0000</strong>. Simpan kode ini.</p>
+            <p class="muted" id="doneText">Admin kami akan menghubungi Anda untuk konfirmasi.</p>
+            <div class="done-pay" id="donePay"></div>
+            <div class="done-actions">
+              <button class="btn btn-quiet btn-lg" type="button" id="orderAgain">Buat pesanan lain</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CEK TAGIHAN ===================== -->
+      <section class="site-section alt" id="tagihan">
+        <div class="wrap">
+          <header class="section-head"><div><p class="eyebrow dark">Cek &amp; bayar tagihan</p><h2>Lihat status pesanan dan lunasi tagihan</h2></div></header>
+          <div class="bill-layout">
+            <div class="bill-side">
+              <form id="billForm" class="form-card bill-form" novalidate>
+                <label class="field">Kode pesanan <b>*</b><input required name="kode" maxlength="20" placeholder="WEB-0001" autocomplete="off" /></label>
+                <label class="field">Nomor HP saat memesan <b>*</b><input required name="hp" inputmode="tel" maxlength="25" placeholder="0812 3456 7890" /></label>
+                <p id="billMessage" class="form-message" role="alert"></p>
+                <button class="btn btn-primary btn-lg btn-block" type="submit"><svg><use href="#i-receipt" /></svg>Cek tagihan</button>
+              </form>
+              <ol class="bill-steps">
+                <li>Klik <b>Bayar DP</b> atau <b>Bayar lunas</b>.</li>
+                <li>Bayar lewat metode yang Anda pilih saat memesan (QRIS, Virtual Account, e-wallet, atau kartu).</li>
+                <li>Selesai. Status berubah otomatis sampai <b>Lunas</b>, tanpa menunggu admin.</li>
+              </ol>
+            </div>
+            <div id="billResult" class="bill-result">
+              <div class="bill-empty"><svg><use href="#i-receipt" /></svg><strong>Tagihan Anda tampil di sini</strong><span>Kode pesanan didapat setelah mengirim pesanan, contoh <b>WEB-0001</b>.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-foot" id="kontak">
+      <div class="wrap site-foot-in">
+        <div>
+          <a class="brand brand-light" href="#top"><img src="./img/logo.svg" alt="" /><span id="footName">Karsa Catering</span></a>
+          <p class="foot-tag">Catering event untuk pernikahan, kantor, dan syukuran.</p>
+        </div>
+        <ul class="foot-list">
+          <li><svg><use href="#i-pin" /></svg><span id="footAddress"></span></li>
+          <li><svg><use href="#i-phone" /></svg><span id="footPhone"></span></li>
+          <li><svg><use href="#i-clock" /></svg><span id="footHours"></span></li>
+          <li><svg><use href="#i-mail" /></svg><span id="footEmail"></span></li>
+        </ul>
+      </div>
+      <div class="wrap foot-bottom">
+        <span>© <span id="year"></span> <span id="footCopy">Karsa Catering</span></span>
+        <a href="./admin.html" class="owner-link"><svg><use href="#i-lock" /></svg>Masuk pemilik</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../backend/app.js"></script>
+    <script src="./js/pengaturan.js"></script>
+    <script src="./js/catalog.js"></script>
+    <script src="./js/vendor/jspdf.umd.min.js"></script>
+    <script src="./js/pdf.js"></script>
+    <script src="./js/tagihan.js"></script>
+    <script src="./js/beranda.js"></script>
+  </body>
+</html>

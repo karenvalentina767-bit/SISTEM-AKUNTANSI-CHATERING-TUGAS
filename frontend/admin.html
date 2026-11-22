@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Karsa — Dashboard Pemilik</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="Sistem akuntansi penjualan dan booking catering event." />
+    <meta name="theme-color" content="#ECEFEA" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="./img/logo.svg" />
+  </head>
+  <body data-role="">
+    <!-- Ikon (dipakai dengan <svg><use href="#i-..."/></svg>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.2c0 2.9 2.9 5.8 5.8 5.8l1.2-1.4-1.9-1-1 .8a4.6 4.6 0 0 1-2.5-2.5l.8-1-1-1.9z"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+        <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h3"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.3-5.5 6.5-5.5s5.9 2.1 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.8c1.9.7 3.2 2.5 3.5 5.2"/></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h12v4M3 7v11a2 2 0 0 0 2 2h15V9H5a2 2 0 0 1-2-2zM16 14.5h.01"/></symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+        <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6zM9 12l2 2 4-4"/></symbol>
+        <symbol id="i-logout" viewBox="0 0 24 24"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M12 17v-6M9 14l3 3 3-3"/></symbol>
+        <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></symbol>
+        <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+        <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></symbol>
+        <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13h5l1.5 3h5L16 13h5M5 5h14l2 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z"/></symbol>
+        <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+        <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v7h-3M7 14h10v7H7z"/></symbol>
+      </defs>
+    </svg>
+
+    <div id="configBanner" class="config-banner is-hidden"></div>
+
+    <!-- ===================== LOGIN ===================== -->
+    <section id="loginScreen" class="login-screen is-hidden">
+      <div class="login-side">
+        <div class="brand brand-light"><img src="./img/logo.svg" alt="" /><span>Karsa</span></div>
+        <p class="login-quote">Setiap piring yang keluar dari dapur tercatat, setiap rupiah yang masuk terlihat.</p>
+        <ul class="login-points">
+          <li>Booking bernomor urut dan invoice otomatis</li>
+          <li>DP, cicilan, dan pelunasan dalam satu riwayat</li>
+          <li>Pesanan online langsung masuk dari website</li>
+        </ul>
+        <div class="login-demo" id="loginDemo">
+          <strong>Akun admin (untuk penilaian)</strong>
+          <dl>
+            <dt>Email</dt><dd id="demoEmail"></dd>
+            <dt>Password</dt><dd id="demoPassword"></dd>
+          </dl>
+          <button class="btn btn-sun login-demo-fill" id="demoFill" type="button">Isi otomatis ke form</button>
+        </div>
+      </div>
+      <form id="loginForm" class="login-form">
+        <a class="back-link" href="./index.html"><svg><use href="#i-back" /></svg>Kembali ke website</a>
+        <h1>Masuk pemilik</h1>
+        <p class="muted">Khusus pemilik dan karyawan usaha. Pembeli tidak perlu login, cukup pesan dari halaman utama.</p>
+        <label class="field">Email<input required type="email" name="email" autocomplete="username" placeholder="nama@usaha.com" /></label>
+        <label class="field">Password<input required type="password" name="password" autocomplete="current-password" /></label>
+        <p id="loginMessage" class="form-message"></p>
+        <button class="btn btn-primary btn-lg" type="submit">Masuk</button>
+        <p class="login-help">Belum hafal? Email dan password admin ada di kotak "Akun admin" di samping, klik <b>Isi otomatis</b> lalu <b>Masuk</b>.</p>
+      </form>
+    </section>
+
+    <!-- ===================== APLIKASI ===================== -->
+    <div class="app is-hidden" id="appShell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+          <div class="brand"><img src="./img/logo.svg" alt="" /><span>Karsa</span></div>
+          <button class="icon-btn drawer-close" id="drawerClose" type="button" aria-label="Tutup menu"><svg><use href="#i-x" /></svg></button>
+        </div>
+
+        <button class="btn btn-primary btn-block side-cta" data-tab="booking" data-perlu="tulis"><svg><use href="#i-plus" /></svg>Catat booking</button>
+
+        <nav class="nav" aria-label="Navigasi utama">
+          <p class="nav-group">Operasional</p>
+          <button class="nav-item is-active" data-tab="dashboard"><svg><use href="#i-home" /></svg>Ringkasan</button>
+          <button class="nav-item" data-tab="online" id="navOnlineItem"><svg><use href="#i-inbox" /></svg>Pesanan online<span class="nav-count is-new" id="navOnline"></span></button>
+          <button class="nav-item" data-tab="payments" id="navPayItem"><svg><use href="#i-cash" /></svg>Konfirmasi bayar<span class="nav-count is-new" id="navPay"></span></button>
+          <button class="nav-item" data-tab="invoices"><svg><use href="#i-receipt" /></svg>Invoice<span class="nav-count" id="navOverdue"></span></button>
+          <button class="nav-item" data-tab="customers"><svg><use href="#i-users" /></svg>Pelanggan</button>
+          <button class="nav-item" data-tab="catalog"><svg><use href="#i-book" /></svg>Katalog paket</button>
+          <p class="nav-group">Laporan</p>
+          <button class="nav-item" data-tab="reports"><svg><use href="#i-chart" /></svg>Laporan laba</button>
+          <p class="nav-group" data-perlu="owner">Pengaturan</p>
+          <button class="nav-item" data-tab="users" data-perlu="owner"><svg><use href="#i-shield" /></svg>Pengguna</button>
+        </nav>
+
+        <div class="user-card">
+          <div class="avatar avatar-lg" id="userAvatar">?</div>
+          <div class="user-meta">
+            <strong id="userName">—</strong>
+            <span class="role-pill" id="userRole">—</span>
+          </div>
+          <a class="icon-btn" href="./index.html" target="_blank" rel="noopener" title="Lihat website pembeli" aria-label="Lihat website pembeli"><svg><use href="#i-home" /></svg></a>
+          <button class="icon-btn" id="logoutButton" type="button" title="Keluar" aria-label="Keluar"><svg><use href="#i-logout" /></svg></button>
+        </div>
+      </aside>
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+      <main class="sheet">
+        <header class="mobile-bar">
+          <div class="brand"><img src="./img/logo.svg" alt="" /><span id="mobileTitle">Ringkasan</span></div>
+          <div class="avatar" id="userAvatarMobile">?</div>
+        </header>
+
+        <!-- ===================== RINGKASAN ===================== -->
+        <section class="view is-active" id="dashboardView" data-view="dashboard">
+          <header class="page-head">
+            <div>
+              <p class="greeting" id="greeting">Selamat datang</p>
+              <h1>Ringkasan</h1>
+            </div>
+            <p class="today" id="todayLabel"></p>
+          </header>
+
+          <button type="button" class="online-alert is-hidden" id="onlineAlert" data-tab="online">
+            <svg><use href="#i-inbox" /></svg><span id="onlineAlertText">Ada pesanan online baru</span><b>Lihat</b>
+          </button>
+
+          <!-- Paket custom yang menunggu harga dari owner (pesanan katalog tercatat otomatis setelah dibayar) -->
+          <section class="panel custom-pending is-hidden" id="customPending">
+            <header class="panel-head"><div><h2>Paket custom perlu harga</h2><p>Isi harga per pax lalu klik Terima. Tagihan langsung muncul di halaman pembeli.</p></div></header>
+            <div id="customPendingList" class="online-list"></div>
+          </section>
+
+          <section class="hero">
+            <div class="hero-text">
+              <p class="hero-sentence" id="heroSentence">Memuat data…</p>
+              <div class="hero-actions">
+                <a class="btn btn-sun" href="#dueReminders" id="heroRemind"><svg><use href="#i-clock" /></svg>Lihat tagihan jatuh tempo</a>
+                <button class="btn btn-ghost-light" data-tab="booking" data-perlu="tulis"><svg><use href="#i-plus" /></svg>Catat booking</button>
+              </div>
+            </div>
+            <div class="hero-bar">
+              <div class="bar-head"><span>Total nilai invoice</span><strong id="heroTotal">Rp 0</strong></div>
+              <div class="stack-bar" id="heroStack"></div>
+              <ul class="stack-legend" id="heroLegend"></ul>
+            </div>
+          </section>
+
+          <div class="metrics">
+            <div class="metric"><span class="metric-label">Kas masuk</span><strong id="paidRevenue">Rp 0</strong><small>semua DP, cicilan, dan pelunasan</small></div>
+            <div class="metric"><span class="metric-label">Piutang berjalan</span><strong id="outstandingReceivables">Rp 0</strong><small id="outstandingCount">0 invoice belum lunas</small></div>
+            <div class="metric"><span class="metric-label">Event 30 hari ke depan</span><strong id="scheduledEvents">0</strong><small id="scheduledPax">0 pax perlu disiapkan</small></div>
+            <div class="metric"><span class="metric-label">Customer kembali memesan</span><strong id="repeatRate">0%</strong><small id="repeatNote">0 dari 0 customer</small></div>
+          </div>
+
+          <div class="dash-grid">
+            <section class="panel">
+              <header class="panel-head">
+                <div><h2>Pengingat jatuh tempo</h2><p id="reminderSubtitle">Invoice belum lunas yang jatuh tempo dalam 3 hari atau sudah lewat</p></div>
+              </header>
+              <div id="dueReminders" class="list"></div>
+            </section>
+            <div class="dash-side">
+              <section class="panel">
+                <header class="panel-head"><div><h2>Kas masuk 6 bulan terakhir</h2><p>Dari pembayaran customer</p></div></header>
+                <div class="mini-chart"><canvas id="cashMiniChart" aria-label="Grafik kas masuk 6 bulan terakhir"></canvas></div>
+              </section>
+              <section class="panel">
+                <header class="panel-head"><div><h2>Event terdekat</h2><p>Yang perlu disiapkan dapur</p></div></header>
+                <div id="upcomingEvents" class="list"></div>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== PESANAN ONLINE ===================== -->
+        <section class="view" id="onlineView" data-view="online">
+          <header class="page-head">
+            <div><h1>Pesanan online</h1><p class="lead">Pesanan dari website. Klik <b>Terima</b> (1 klik) dan tagihan langsung muncul di halaman pembeli. Kalau pembeli sudah transfer duluan, cukup klik <b>Uang sudah masuk</b>.</p></div>
+            <a class="btn btn-quiet" href="./index.html" target="_blank" rel="noopener"><svg><use href="#i-home" /></svg>Buka website pembeli</a>
+          </header>
+          <div class="toolbar">
+            <label class="search"><svg><use href="#i-search" /></svg><input id="onlineSearch" type="search" placeholder="Cari kode, nama, nomor HP, atau acara" /></label>
+            <div class="seg" id="onlineFilter">
+              <button data-filter="Baru" class="is-active">Baru</button>
+              <button data-filter="Diterima">Diterima</button>
+              <button data-filter="Ditolak">Ditolak</button>
+              <button data-filter="all">Semua</button>
+            </div>
+          </div>
+          <div id="onlineList" class="online-list"></div>
+          <p class="table-foot" id="onlineCount"></p>
+        </section>
+
+        <!-- ===================== KONFIRMASI BAYAR ===================== -->
+        <section class="view" id="paymentsView" data-view="payments">
+          <header class="page-head">
+            <div><h1>Konfirmasi bayar</h1><p class="lead">Pembeli menekan "Saya sudah bayar" di website. Cek mutasi rekening, lalu klik <b>Verifikasi</b>. Pesanan baru otomatis ikut diterima dan dibuatkan invoice.</p></div>
+          </header>
+          <div class="toolbar">
+            <div class="seg" id="payFilter">
+              <button data-filter="Menunggu" class="is-active">Menunggu</button>
+              <button data-filter="Diterima">Diterima</button>
+              <button data-filter="Ditolak">Ditolak</button>
+              <button data-filter="all">Semua</button>
+            </div>
+          </div>
+          <div id="payReportList" class="online-list"></div>
+        </section>
+
+        <!-- ===================== BOOKING ===================== -->
+        <section class="view" id="bookingView" data-view="booking">
+          <header class="page-head">
+            <div><h1>Catat booking</h1><p class="lead">Customer, pesanan bernomor urut, dan invoice tercatat sekaligus.</p></div>
+          </header>
+
+          <div class="booking-layout">
+            <form id="bookingForm" class="form-card">
+              <div class="from-online is-hidden" id="fromOnline"></div>
+              <fieldset class="step">
+                <legend><span class="step-no">1</span>Customer</legend>
+                <p class="step-hint">Ketik nomor HP dulu. Customer yang pernah memesan akan dikenali otomatis.</p>
+                <div class="grid-2">
+                  <label class="field">Nomor HP <b>*</b><input required name="phone" inputmode="tel" placeholder="0812 3456 7890" /></label>
+                  <label class="field">Nama customer <b>*</b><input required name="customerName" placeholder="Naya Prameswari" /></label>
+                  <label class="field span-2">Email <small>opsional</small><input type="email" name="email" placeholder="nama@perusahaan.com" /></label>
+                </div>
+                <div id="customerLookup" class="lookup is-hidden"></div>
+              </fieldset>
+
+              <fieldset class="step">
+                <legend><span class="step-no">2</span>Event dan paket</legend>
+                <div class="grid-2">
+                  <label class="field span-2">Nama event <b>*</b><input required name="eventName" placeholder="Resepsi Pernikahan Dinda dan Arif" /></label>
+                  <label class="field">Tanggal event <b>*</b><input required type="date" name="eventDate" /></label>
+                  <label class="field">Jenis paket <b>*</b><input required name="packageType" list="packageList" placeholder="Pilih di bawah atau ketik sendiri" /></label>
+                  <label class="field">Jumlah pax <b>*</b><input required min="1" type="number" name="pax" placeholder="150" /><small id="minPaxHint" class="hint"></small></label>
+                  <label class="field">Harga per pax <b>*</b><input required min="0" type="number" name="pricePerPax" placeholder="125000" /></label>
+                </div>
+                <datalist id="packageList"></datalist>
+                <div id="packagePicker" class="package-picker"></div>
+              </fieldset>
+
+              <fieldset class="step">
+                <legend><span class="step-no">3</span>Penagihan</legend>
+                <div class="grid-2">
+                  <label class="field">Tanggal invoice <b>*</b><input required type="date" name="billingDate" /></label>
+                  <label class="field">Jatuh tempo <b>*</b> <small>otomatis H-1 sebelum acara</small><input required type="date" name="dueDate" /></label>
+                  <label class="field">Metode pembayaran <b>*</b><select required name="paymentMethod" class="method-select"></select></label>
+                  <label class="field">Dibayar sekarang <small>opsional</small><input min="0" type="number" name="downPayment" placeholder="0" /></label>
+                </div>
+                <div class="chips" id="dpChips">
+                  <button type="button" class="chip" data-dp="0">Belum bayar</button>
+                  <button type="button" class="chip" data-dp="0.3">DP 30%</button>
+                  <button type="button" class="chip" data-dp="0.5">Setengah</button>
+                  <button type="button" class="chip" data-dp="1">Lunas</button>
+                </div>
+              </fieldset>
+            </form>
+
+            <aside class="summary">
+              <h2>Ringkasan tagihan</h2>
+              <dl>
+                <div><dt>Subtotal</dt><dd id="estSubtotal">Rp 0</dd></div>
+                <div><dt>PPN 11%</dt><dd id="estTax">Rp 0</dd></div>
+                <div class="total"><dt>Total invoice</dt><dd id="estimatedTotal">Rp 0</dd></div>
+                <div><dt>Dibayar sekarang</dt><dd id="estPaid">Rp 0</dd></div>
+                <div><dt>Status awal</dt><dd><span id="estStatus" class="pill s-belum">Belum Bayar</span></dd></div>
+              </dl>
+              <p id="bookingMessage" class="form-message">Nomor pesanan dan invoice dibuat otomatis.</p>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" form="bookingForm">Simpan booking</button>
+              <button class="btn btn-quiet btn-block" type="reset" form="bookingForm">Kosongkan form</button>
+            </aside>
+          </div>
+        </section>
+
+        <!-- ===================== INVOICE ===================== -->
+        <section class="view" id="invoicesView" data-view="invoices">
+          <header class="page-head">
+            <div><h1>Invoice</h1><p class="lead">Catat DP dan pelunasan, cetak invoice, dan kirim pengingat.</p></div>
+          </header>
+          <div class="toolbar">
+            <label class="search"><svg><use href="#i-search" /></svg><input id="invoiceSearch" type="search" placeholder="Cari nomor pesanan, customer, atau event" /></label>
+            <div class="seg" id="invoiceFilter" role="tablist">
+              <button data-filter="all" class="is-active">Semua</button>
+              <button data-filter="open">Belum lunas</button>
+              <button data-filter="overdue">Lewat tempo</button>
+              <button data-filter="Belum Bayar">Belum Bayar</button>
+              <button data-filter="DP">DP</button>
+              <button data-filter="Setengah">Setengah</button>
+              <button data-filter="Lunas">Lunas</button>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="table">
+              <thead><tr><th>Pesanan</th><th>Customer</th><th>Event</th><th class="num">Tagihan</th><th>Status</th><th></th></tr></thead>
+              <tbody id="invoiceRows"></tbody>
+            </table>
+          </div>
+          <p class="table-foot" id="invoiceCount"></p>
+        </section>
+
+        <!-- ===================== PELANGGAN ===================== -->
+        <section class="view" id="customersView" data-view="customers">
+          <header class="page-head">
+            <div><h1>Pelanggan</h1><p class="lead">Dikenali dari nomor HP. Customer lama berarti sudah memesan dua kali atau lebih.</p></div>
+          </header>
+          <div class="metrics">
+            <div class="metric"><span class="metric-label">Total customer</span><strong id="custTotal">0</strong><small>tercatat di sistem</small></div>
+            <div class="metric"><span class="metric-label">Customer baru</span><strong id="custNew">0</strong><small>baru memesan sekali</small></div>
+            <div class="metric"><span class="metric-label">Customer lama</span><strong id="custRepeat">0</strong><small>memesan dua kali atau lebih</small></div>
+            <div class="metric"><span class="metric-label">Repeat rate</span><strong id="custRate">0%</strong><small>customer yang kembali</small></div>
+          </div>
+          <div class="toolbar">
+            <label class="search"><svg><use href="#i-search" /></svg><input id="customerSearch" type="search" placeholder="Cari nama atau nomor HP" /></label>
+            <div class="seg" id="customerFilter">
+              <button data-filter="all" class="is-active">Semua</button>
+              <button data-filter="new">Baru</button>
+              <button data-filter="repeat">Lama</button>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="table">
+              <thead><tr><th>Customer</th><th>Pesanan</th><th class="num">Total belanja</th><th class="num">Sisa tagihan</th><th>Pesanan terakhir</th></tr></thead>
+              <tbody id="customerRows"></tbody>
+            </table>
+          </div>
+          <p class="table-foot" id="customerCount"></p>
+        </section>
+
+        <!-- ===================== LAPORAN ===================== -->
+        <section class="view" id="reportsView" data-view="reports">
+          <header class="page-head">
+            <div><h1>Laporan laba</h1><p class="lead">Berapa untung usaha: per hari, per tanggal, atau per bulan.</p></div>
+            <div class="head-actions"><span class="report-msg" id="reportMsg" role="status"></span><button class="btn btn-quiet" id="printReport" type="button"><svg><use href="#i-print" /></svg>Cetak</button><button class="btn btn-primary" id="pdfReport" type="button"><svg><use href="#i-file" /></svg>Unduh PDF</button></div>
+          </header>
+
+          <div class="period-bar">
+            <div class="seg" id="periodMode" role="tablist" aria-label="Lihat per">
+              <button data-mode="minggu" class="is-active">Per hari (minggu)</button>
+              <button data-mode="bulan">Per tanggal (bulan)</button>
+              <button data-mode="tahun">Per bulan (tahun)</button>
+            </div>
+            <div class="period-nav">
+              <button class="icon-btn" id="periodPrev" type="button" aria-label="Sebelumnya"><svg><use href="#i-back" /></svg></button>
+              <strong id="periodLabel">—</strong>
+              <button class="icon-btn" id="periodNext" type="button" aria-label="Berikutnya"><svg style="transform:scaleX(-1)"><use href="#i-back" /></svg></button>
+              <button class="btn btn-quiet btn-sm" id="periodToday" type="button">Hari ini</button>
+            </div>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><span class="metric-label">Jumlah pesanan</span><strong id="repOrders">0</strong><small>menurut tanggal acara</small></div>
+            <div class="metric"><span class="metric-label">Pendapatan</span><strong id="repRevenue">Rp 0</strong><small>tanpa PPN</small></div>
+            <div class="metric"><span class="metric-label">Modal</span><strong id="repCost">Rp 0</strong><small>bahan + tenaga, dari modal per paket</small></div>
+            <div class="metric metric-hl"><span class="metric-label">Laba</span><strong id="repProfit">Rp 0</strong><small><span id="repMargin">0%</span> dari pendapatan</small></div>
+          </div>
+
+          <section class="panel">
+            <header class="panel-head"><div><h2 id="chartTitle">Laba per hari</h2><p>Laba = pendapatan − modal. Dihitung dari pesanan menurut tanggal acara.</p></div></header>
+            <div class="chart-box chart-tall"><canvas id="profitChart"></canvas></div>
+          </section>
+
+          <section class="panel">
+            <header class="panel-head"><div><h2 id="tableTitle">Rincian per hari</h2><p>Modal per pax diatur di katalog paket</p></div></header>
+            <div class="table-scroll">
+              <table class="table report-table">
+                <thead><tr><th id="periodCol">Hari</th><th class="num">Pesanan</th><th class="num">Pendapatan</th><th class="num">Modal</th><th class="num">Laba</th></tr></thead>
+                <tbody id="reportRows"></tbody>
+                <tfoot id="reportFoot"></tfoot>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <!-- ===================== KATALOG ===================== -->
+        <section class="view" id="catalogView" data-view="catalog">
+          <header class="page-head">
+            <div><h1>Katalog paket</h1><p class="lead">Harga per pax dan minimal pemesanan langsung dipakai di form booking.</p></div>
+          </header>
+          <div id="catalogGrid" class="catalog"></div>
+        </section>
+
+        <!-- ===================== PENGGUNA ===================== -->
+        <section class="view" id="usersView" data-view="users">
+          <header class="page-head">
+            <div><h1>Pengguna</h1><p class="lead">Atur siapa yang boleh menginput, mengubah, dan menghapus data.</p></div>
+          </header>
+          <div class="table-card access">
+            <table class="table">
+              <thead><tr><th>Peran</th><th>Melihat</th><th>Input &amp; ubah</th><th>Menghapus</th><th>Atur pengguna</th></tr></thead>
+              <tbody>
+                <tr><td><span class="role-pill r-owner">Owner</span></td><td>Ya</td><td>Ya</td><td>Ya</td><td>Ya</td></tr>
+                <tr><td><span class="role-pill r-admin">Admin</span></td><td>Ya</td><td>Ya</td><td class="muted">Tidak</td><td class="muted">Tidak</td></tr>
+                <tr><td><span class="role-pill r-viewer">Viewer</span></td><td>Ya</td><td class="muted">Tidak</td><td class="muted">Tidak</td><td class="muted">Tidak</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <section class="panel">
+            <header class="panel-head">
+              <div><h2>Daftar pengguna</h2><p>Akun baru dibuat di Supabase (Authentication, Users, Add user) dan otomatis berperan viewer.</p></div>
+            </header>
+            <div class="table-scroll">
+              <table class="table">
+                <thead><tr><th>Nama</th><th>Email</th><th>Terdaftar</th><th>Peran</th></tr></thead>
+                <tbody id="userRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <!-- Navigasi bawah (HP) -->
+      <nav class="bottom-nav" aria-label="Navigasi">
+        <button data-tab="dashboard" class="is-active"><svg><use href="#i-home" /></svg>Ringkasan</button>
+        <button data-tab="invoices"><svg><use href="#i-receipt" /></svg>Invoice</button>
+        <button data-tab="booking" class="fab" data-perlu="tulis" aria-label="Catat booking"><svg><use href="#i-plus" /></svg></button>
+        <button data-tab="online" class="has-badge" id="navOnlineMobileItem"><svg><use href="#i-inbox" /></svg>Pesanan<span class="nav-count is-new" id="navOnlineMobile"></span></button>
+        <button id="drawerOpen" type="button"><svg><use href="#i-menu" /></svg>Menu</button>
+      </nav>
+    </div>
+
+    <!-- ===================== DIALOG: EDIT ===================== -->
+    <dialog id="editDialog" class="dialog">
+      <form id="editForm">
+        <header class="dialog-head">
+          <div><h2>Edit booking <span id="editOrderNo"></span></h2><p>Status bayar dihitung otomatis dari pembayaran yang tercatat.</p></div>
+          <button class="icon-btn" type="button" data-close aria-label="Tutup"><svg><use href="#i-x" /></svg></button>
+        </header>
+        <div class="dialog-body">
+          <div class="grid-2">
+            <label class="field span-2">Nama event <b>*</b><input required name="eventName" /></label>
+            <label class="field">Tanggal event <b>*</b><input required type="date" name="eventDate" /></label>
+            <label class="field">Jenis paket <b>*</b><input required name="packageType" list="packageList" /></label>
+            <label class="field">Jumlah pax <b>*</b><input required min="1" type="number" name="pax" /><small id="editMinPaxHint" class="hint"></small></label>
+            <label class="field">Harga per pax <b>*</b><input required min="0" type="number" name="pricePerPax" /></label>
+            <label class="field">Metode pembayaran <b>*</b><select required name="paymentMethod" class="method-select"></select></label>
+            <label class="field">Tanggal invoice <b>*</b><input required type="date" name="billingDate" /></label>
+            <label class="field span-2">Jatuh tempo <b>*</b><input required type="date" name="dueDate" /></label>
+          </div>
+          <div class="total-line"><span>Total invoice baru, termasuk PPN 11%</span><strong id="editEstimatedTotal">Rp 0</strong></div>
+        </div>
+        <footer class="dialog-foot">
+          <p id="editMessage" class="form-message"></p>
+          <button class="btn btn-quiet" type="button" data-close>Batal</button>
+          <button class="btn btn-primary" type="submit">Simpan perubahan</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <!-- ===================== DIALOG: PEMBAYARAN ===================== -->
+    <dialog id="payDialog" class="dialog dialog-wide">
+      <header class="dialog-head">
+        <div><h2 id="payTitle">Pembayaran</h2><p id="paySubtitle"></p></div>
+        <button class="icon-btn" type="button" data-close aria-label="Tutup"><svg><use href="#i-x" /></svg></button>
+      </header>
+      <div class="dialog-body">
+        <div class="pay-figures">
+          <div><span>Total tagihan</span><strong id="payTotal">Rp 0</strong></div>
+          <div><span>Sudah dibayar</span><strong id="payPaid">Rp 0</strong></div>
+          <div><span>Sisa</span><strong id="payRemaining">Rp 0</strong></div>
+          <div><span>Status</span><em id="payStatus" class="pill">—</em></div>
+        </div>
+        <div class="progress"><span id="payProgress"></span></div>
+        <p class="pay-meta" id="payMeta"></p>
+
+        <form id="payForm" class="pay-form" data-perlu="tulis">
+          <h3>Catat pembayaran masuk</h3>
+          <div class="chips" id="payChips">
+            <button type="button" class="chip" data-pay="0.3">DP 30%</button>
+            <button type="button" class="chip" data-pay="0.5">Sampai setengah</button>
+            <button type="button" class="chip" data-pay="1">Lunasi sisa</button>
+          </div>
+          <div class="grid-4">
+            <label class="field">Jumlah (Rp) <b>*</b><input required type="number" min="1" name="jumlah" /></label>
+            <label class="field">Tanggal <b>*</b><input required type="date" name="tanggal" /></label>
+            <label class="field">Metode <b>*</b><select required name="metode" class="method-select"></select></label>
+            <label class="field">Catatan<input name="catatan" placeholder="DP via BCA" /></label>
+          </div>
+          <div class="form-actions">
+            <p id="payMessage" class="form-message"></p>
+            <button class="btn btn-primary" type="submit">Simpan pembayaran</button>
+          </div>
+        </form>
+
+        <h3>Riwayat pembayaran</h3>
+        <div id="payHistory" class="history"></div>
+      </div>
+      <footer class="dialog-foot">
+        <p></p>
+        <button class="btn btn-quiet" type="button" id="payPrint"><svg><use href="#i-file" /></svg>Unduh invoice PDF</button>
+        <button class="btn btn-quiet" type="button" data-close>Tutup</button>
+      </footer>
+    </dialog>
+
+    <!-- ===================== DIALOG: RIWAYAT CUSTOMER ===================== -->
+    <dialog id="customerDialog" class="dialog dialog-wide">
+      <header class="dialog-head">
+        <div class="cust-head"><div class="avatar avatar-lg" id="custDialogAvatar"></div><div><h2 id="custDialogName">Customer</h2><p id="custDialogMeta"></p></div></div>
+        <button class="icon-btn" type="button" data-close aria-label="Tutup"><svg><use href="#i-x" /></svg></button>
+      </header>
+      <div class="dialog-body">
+        <div class="pay-figures">
+          <div><span>Jumlah pesanan</span><strong id="custDialogCount">0</strong></div>
+          <div><span>Total belanja</span><strong id="custDialogSpent">Rp 0</strong></div>
+          <div><span>Sudah dibayar</span><strong id="custDialogPaid">Rp 0</strong></div>
+          <div><span>Sisa tagihan</span><strong id="custDialogDue">Rp 0</strong></div>
+        </div>
+        <h3>Riwayat pemesanan</h3>
+        <div class="table-scroll">
+          <table class="table">
+            <thead><tr><th>Pesanan</th><th>Event</th><th>Paket</th><th class="num">Total</th><th>Status</th></tr></thead>
+            <tbody id="custDialogRows"></tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="dialog-foot">
+        <p></p>
+        <button class="btn btn-primary" type="button" id="custDialogBook" data-perlu="tulis"><svg><use href="#i-plus" /></svg>Booking lagi</button>
+        <button class="btn btn-quiet" type="button" data-close>Tutup</button>
+      </footer>
+    </dialog>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="../backend/app.js"></script>
+    <script src="./js/pengaturan.js"></script>
+    <script src="./js/catalog.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/invoices.js"></script>
+    <script src="./js/customers.js"></script>
+    <script src="./js/reports.js"></script>
+    <script src="./js/users.js"></script>
+    <script src="./js/pesanan-online.js"></script>
+    <script src="./js/konfirmasi-bayar.js"></script>
+    <script src="./js/vendor/jspdf.umd.min.js"></script>
+    <script src="./js/pdf.js"></script>
+    <script src="./js/print.js"></script>
+    <script>App.start();</script>
+  </body>
+</html>
